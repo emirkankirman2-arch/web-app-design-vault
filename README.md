@@ -1,4 +1,4 @@
-# ARGON Web & App Design Vault — AI-Ready UI Design Intelligence Library
+# Web & App Design Vault — AI-Ready UI Design Intelligence Library
 
 > **Reverse-Engineered UI/UX Components, OKLCH Design Tokens, Motion Curves & Production React/Flutter Code**  
 > **Verified Database Scale:** `1,370` components distilled from `241` UI showcase videos across `10` UI categories  
