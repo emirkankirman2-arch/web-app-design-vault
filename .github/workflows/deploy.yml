@@ -49,7 +49,7 @@ jobs:
           mkdir -p quartz/quartz/static
           cp vault_src/llms.txt vault_src/llms-full.txt vault_src/robots.txt vault_src/discover.json quartz/quartz/static/
           sed -i 's|baseUrl: ".*"|baseUrl: "emirkankirman2-arch.github.io/web-app-design-vault"|g' quartz/quartz.config.ts
-          sed -i 's|pageTitle: ".*"|pageTitle: "ARGON Web & App Design Vault"|g' quartz/quartz.config.ts
+          sed -i 's|pageTitle: ".*"|pageTitle: "ARGON Web \& App Design Vault"|g' quartz/quartz.config.ts
 
       - name: Build Quartz 4 Static Site
         working-directory: quartz
