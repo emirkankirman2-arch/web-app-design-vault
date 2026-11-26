@@ -21,4 +21,4 @@ tags: [splashauth, ui-component, design-tokens, react, flutter, motion-spec]
 - [[recon_DeEzPEXNDRw_Video_by_wearepixelflow_s1_02_splashauth|SplashAuth — DeEzPEXNDRw_Video_by_wearepi (00:00.000)]] — SSIM `0.9542` | Quality `8.72` | `FADE_AND_SLIDE_UP`
 
 ---
-> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2-arch.itch.io/web-app-design-vault).
+> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2353.itch.io/web-app-design-vault).

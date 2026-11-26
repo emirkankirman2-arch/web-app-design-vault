@@ -31,4 +31,4 @@ tags: [card, ui-component, design-tokens, react, flutter, motion-spec]
 - [[recon_m_vM9FS6DAk_if_case_statements_Technique_of_the_Week_s2_01_card|Card — m_vM9FS6DAk_if_case_statemen (00:40.717)]] — SSIM `0.9937` | Quality `8.72` | `FADE_IN_SCALE`
 
 ---
-> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2-arch.itch.io/web-app-design-vault).
+> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2353.itch.io/web-app-design-vault).

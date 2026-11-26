@@ -30,4 +30,4 @@ tags: [glassmenu, ui-component, design-tokens, react, flutter, motion-spec]
 - [[recon_SdumUqJ3EN0_Elevenlabs_MCP_Claude_is_the_Ultimate_Creative_Unlock|GlassMenu — SdumUqJ3EN0_Elevenlabs_MCP_C (00:00.000)]] — SSIM `0.9883` | Quality `8.72` | `FADE_IN_SCALE`
 
 ---
-> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2-arch.itch.io/web-app-design-vault).
+> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2353.itch.io/web-app-design-vault).

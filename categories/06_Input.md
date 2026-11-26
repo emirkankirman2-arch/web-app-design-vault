@@ -28,4 +28,4 @@ tags: [input, ui-component, design-tokens, react, flutter, motion-spec]
 - [[recon_bF28LFPjFsI_How_the_JVM_Actually_Works_s3_01_input|Input — bF28LFPjFsI_How_the_JVM_Actu (04:51.000)]] — SSIM `0.9842` | Quality `8.72` | `FADE_IN_SCALE`
 
 ---
-> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2-arch.itch.io/web-app-design-vault).
+> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2353.itch.io/web-app-design-vault).

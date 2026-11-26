@@ -10,7 +10,7 @@ Welcome! **ARGON** indexes **1,370 verified UI & mobile design components** acro
 
 - **AI & Search Endpoints:** [`llms.txt`](llms.txt) | [`llms-full.txt`](llms-full.txt) | [`discover.json`](discover.json) | [`robots.txt`](robots.txt)
 - **Raw GitHub Fallback:** [`llms.txt (raw)`](https://raw.githubusercontent.com/emirkankirman2-arch/web-app-design-vault/main/llms.txt) | [`discover.json (raw)`](https://raw.githubusercontent.com/emirkankirman2-arch/web-app-design-vault/main/discover.json)
-- **Full 1,370-Component Supporter Pack (Itch.io):** [https://emirkankirman2-arch.itch.io/web-app-design-vault](https://emirkankirman2-arch.itch.io/web-app-design-vault)
+- **Full 1,370-Component Supporter Pack (Itch.io):** [https://emirkankirman2353.itch.io/web-app-design-vault](https://emirkankirman2353.itch.io/web-app-design-vault)
 
 ## 🗂️ 10 Canonical UI & Motion Categories
 

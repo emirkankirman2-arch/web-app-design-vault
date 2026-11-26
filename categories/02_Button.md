@@ -31,4 +31,4 @@ tags: [button, ui-component, design-tokens, react, flutter, motion-spec]
 - [[recon_DZ8EWBEoFG6_Video_by_uiuxmanuel_s2_03_button|Button — DZ8EWBEoFG6_Video_by_uiuxman (00:08.000)]] — SSIM `0.9903` | Quality `8.72` | `FADE_IN_SCALE`
 
 ---
-> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2-arch.itch.io/web-app-design-vault).
+> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2353.itch.io/web-app-design-vault).

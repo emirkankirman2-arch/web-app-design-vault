@@ -30,4 +30,4 @@ tags: [hero, ui-component, design-tokens, react, flutter, motion-spec]
 - [[recon_2U0PeMqJ6e4_Multi_window_on_desktop_with_Flutter_s2_00_hero|Hero — 2U0PeMqJ6e4_Multi_window_on_ (04:22.888)]] — SSIM `0.9916` | Quality `8.72` | `FADE_IN_SCALE`
 
 ---
-> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2-arch.itch.io/web-app-design-vault).
+> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2353.itch.io/web-app-design-vault).

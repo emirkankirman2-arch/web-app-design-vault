@@ -19,4 +19,4 @@ tags: [shadercanvas, ui-component, design-tokens, react, flutter, motion-spec]
 - [[recon_mMEgcEqc46g_I_Made_Reddit_Look_Retro_s3_00_shadercanvas|ShaderCanvas — mMEgcEqc46g_I_Made_Reddit_Lo (03:46.933)]] — SSIM `0.9806` | Quality `8.72` | `FADE_IN_SCALE`
 
 ---
-> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2-arch.itch.io/web-app-design-vault).
+> **Full 1,370-Component Bundle + CSV Tokens + Zero-Key MCP:** Available in the [Supporter Pack on Itch.io](https://emirkankirman2353.itch.io/web-app-design-vault).

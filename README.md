@@ -7,7 +7,7 @@
 [![Built with Quartz 4](https://img.shields.io/badge/Built%20with-Quartz%204-7c3aed)](https://quartz.jzhao.xyz/)
 [![React & Tailwind](https://img.shields.io/badge/React%20%2B%20Tailwind-Framer%20Motion-0ea5e9)](https://emirkankirman2-arch.github.io/web-app-design-vault/)
 [![Flutter Ready](https://img.shields.io/badge/Flutter-Material%20Widgets-02569B)](https://emirkankirman2-arch.github.io/web-app-design-vault/)
-[![Support on Itch.io](https://img.shields.io/badge/Support-Itch.io%20Supporter%20Pack-fa5c5c)](https://emirkankirman2-arch.itch.io/web-app-design-vault)
+[![Support on Itch.io](https://img.shields.io/badge/Support-Itch.io%20Supporter%20Pack-fa5c5c)](https://emirkankirman2353.itch.io/web-app-design-vault)
 
 ---
 
@@ -51,6 +51,6 @@ Run the zero-API-key MCP server with Cursor or Claude Desktop for live queries:
 
 Want the full offline **Obsidian Vault**, complete **1,370-component CSV & CSS/Dart token starters**, **AI Drag-and-Drop Bundles**, and **Zero-Key MCP Server**?
 
-- **[Download / Support on Itch.io](https://emirkankirman2-arch.itch.io/web-app-design-vault)**
+- **[Download / Support on Itch.io](https://emirkankirman2353.itch.io/web-app-design-vault)**
 - **[GitHub Repository](https://github.com/emirkankirman2-arch/web-app-design-vault)**
 - **[Live Interactive Web Vault (GitHub Pages)](https://emirkankirman2-arch.github.io/web-app-design-vault/)**
