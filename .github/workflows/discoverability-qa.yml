@@ -1,0 +1,41 @@
+name: Discoverability & Link QA
+
+on:
+  push:
+    branches: ["main", "master", "feat/*"]
+  pull_request:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify Discovery Manifest, Robots, llms.txt & Zero Secrets
+        run: |
+          python - << 'PY'
+          import json, re
+          from pathlib import Path
+
+          root = Path(".")
+          for req in ("index.md", "README.md", "llms.txt", "llms-full.txt", "discover.json", "robots.txt", ".github/workflows/deploy.yml"):
+              assert (root / req).exists(), f"Missing: {req}"
+
+          manifest = json.loads((root / "discover.json").read_text(encoding="utf-8"))
+          assert manifest["stats"]["total_categories"] == 10
+          for d in manifest["categories"]:
+              assert (root / d["file_path"]).exists(), f"Missing category: {d['file_path']}"
+          for m in manifest["components"]:
+              assert (root / m["file_path"]).exists(), f"Missing component: {m['file_path']}"
+
+          forbidden_exts = {".py", ".bat", ".sh", ".env", ".db", ".sqlite"}
+          for p in root.rglob("*"):
+              if ".git" in p.parts or p.is_dir():
+                  continue
+              assert p.suffix.lower() not in forbidden_exts, f"Forbidden file: {p}"
+          print(f"QA passed: {len(manifest['components'])} components, {len(manifest['categories'])} categories.")
+          PY

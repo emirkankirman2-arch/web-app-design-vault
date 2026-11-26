@@ -1,0 +1,150 @@
+name: Deploy ARGON Web & App Design Vault to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Vault Content
+        uses: actions/checkout@v4
+        with:
+          path: vault_src
+          fetch-depth: 0
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Clone Quartz 4 Engine
+        uses: actions/checkout@v4
+        with:
+          repository: jackyzha0/quartz
+          ref: v4
+          path: quartz
+
+      - name: Install Quartz Dependencies
+        working-directory: quartz
+        run: npm ci
+
+      - name: Configure Quartz BaseURL & Populate Content
+        run: |
+          rm -rf quartz/content/*
+          cp -r vault_src/index.md vault_src/README.md vault_src/categories vault_src/components quartz/content/
+          mkdir -p quartz/quartz/static
+          cp vault_src/llms.txt vault_src/llms-full.txt vault_src/robots.txt vault_src/discover.json quartz/quartz/static/
+          sed -i 's|baseUrl: ".*"|baseUrl: "emirkankirman2-arch.github.io/web-app-design-vault"|g' quartz/quartz.config.ts
+          sed -i 's|pageTitle: ".*"|pageTitle: "ARGON Web & App Design Vault"|g' quartz/quartz.config.ts
+
+      - name: Build Quartz 4 Static Site
+        working-directory: quartz
+        run: npx quartz build
+
+      - name: Copy Static AI & Crawler Assets + Inject Per-Page SEO & JSON-LD
+        run: |
+          touch quartz/public/.nojekyll
+          cp vault_src/llms.txt quartz/public/llms.txt
+          cp vault_src/llms-full.txt quartz/public/llms-full.txt
+          cp vault_src/robots.txt quartz/public/robots.txt
+          cp vault_src/discover.json quartz/public/discover.json
+          python3 - << 'PY'
+          import html, json, re, xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          pub = Path("quartz/public")
+          base = "https://emirkankirman2-arch.github.io/web-app-design-vault"
+          repo = "https://github.com/emirkankirman2-arch/web-app-design-vault"
+
+          sm_path = pub / "sitemap.xml"
+          assert sm_path.exists(), "sitemap.xml missing after Quartz build"
+          ET.fromstring(sm_path.read_text(encoding="utf-8"))
+
+          injected = 0
+          for hp in pub.rglob("*.html"):
+              rel = hp.relative_to(pub).as_posix()
+              raw = hp.read_text(encoding="utf-8", errors="replace")
+              if "<head>" not in raw:
+                  continue
+
+              url_slug = "" if rel == "index.html" else (rel[:-len("/index.html")] if rel.endswith("/index.html") else rel[:-5] if rel.endswith(".html") else rel)
+              canonical = f"{base}/" if not url_slug else f"{base}/{url_slug}"
+              t_m = re.search(r"<title>(.*?)</title>", raw, re.S)
+              page_title = html.unescape(t_m.group(1)).strip() if t_m else "ARGON Web & App Design Vault"
+
+              art_m = re.search(r"<article[^>]*>(.*?)</article>", raw, re.S)
+              snippet = "Reverse-engineered Web & Mobile UI Components, OKLCH Design Tokens, Motion Specs, React/Tailwind & Flutter Code."
+              if art_m:
+                  plain = " ".join(re.sub(r"<[^>]+>", " ", art_m.group(1)).split())
+                  if len(plain) > 60:
+                      snippet = plain[:155].rsplit(" ", 1)[0] + "..."
+              desc_esc = html.escape(snippet, quote=True)
+
+              extra_head = []
+              if 'rel="canonical"' not in raw:
+                  extra_head.append(f'<link rel="canonical" href="{canonical}" />')
+              if 'name="description"' not in raw:
+                  extra_head.append(f'<meta name="description" content="{desc_esc}" />')
+              if 'property="og:url"' not in raw:
+                  extra_head.append(f'<meta property="og:url" content="{canonical}" />')
+              if 'application/ld+json' not in raw:
+                  if rel == "index.html":
+                      ld = {
+                          "@context": "https://schema.org",
+                          "@type": "Dataset",
+                          "name": "ARGON Web & App Design Vault",
+                          "description": snippet,
+                          "url": canonical,
+                          "sameAs": repo,
+                          "inLanguage": ["en", "tr"],
+                          "keywords": ["ui-design", "design-tokens", "react", "tailwindcss", "flutter", "framer-motion", "mcp"],
+                      }
+                  else:
+                      ld = {
+                          "@context": "https://schema.org",
+                          "@type": "SoftwareSourceCode",
+                          "name": page_title,
+                          "description": snippet,
+                          "url": canonical,
+                          "codeRepository": repo,
+                          "programmingLanguage": ["TypeScript (React + Tailwind)", "Dart (Flutter)"],
+                          "runtimePlatform": ["Web", "iOS", "Android"],
+                      }
+                  extra_head.append('<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>")
+
+              if extra_head:
+                  raw = raw.replace("</head>", "\n".join(extra_head) + "\n</head>", 1)
+                  hp.write_text(raw, encoding="utf-8")
+                  injected += 1
+          print(f"SEO/JSON-LD injected into {injected} HTML files.")
+          PY
+
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: quartz/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
